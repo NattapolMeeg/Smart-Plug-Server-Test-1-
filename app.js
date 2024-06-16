@@ -7,11 +7,14 @@ var cors = require('cors')
 
 const mongoose = require('mongoose');
 const products = require('./routes/products');
-const electrical = require('./routes/electrical')
+const electrical = require('./routes/electrical');
+const plug = require('./routes/plug');
+const battery = require('./routes/battery');
+const plug_status = require('./routes/plug_status');
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb+srv://b6303952sut:12345@cluster0.hr9psfl.mongodb.net/')
+mongoose.connect('mongodb+srv://b6303952sut:12345@cluster0.9pk51vw.mongodb.net/')
         .then(() => console.log('connection successfully!'))
         .catch((err) => console.error(err))
 
@@ -37,6 +40,9 @@ app.use('/users', usersRouter);
 app.use('/products', products);
 //end point group => /product is leading to all product data base
 app.use('/electrical', electrical);
+app.use('/Plug',plug);
+app.use('/battery',battery);
+app.use('/status',plug_status);
 
 
 // catch 404 and forward to error handler

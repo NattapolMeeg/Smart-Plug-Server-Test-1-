@@ -1,0 +1,25 @@
+const getMovies = async () => {
+    try {
+      const response = await fetch('https://mg3x8cdf-3000.asse.devtunnels.ms/electrical?fbclid=IwZXh0bgNhZW0CMTAAAR2YJYx69XNuy59KO0Qdi_PytbOjB-l5TnVOrfMNmvpzyvrBfo69W0kMPAA_aem_AR74wv6tSfWCAyH6BgADcQcNVxgkOH8TAwPcgtaAugNukWmY66mK6b4Ao0cGS-G-veHMpyAO0Abxc9DjK0SsDFHB');
+      const json = await response.json();
+  
+      // เรียงลำดับข้อมูลตาม updated_at
+      json.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+  
+      // เลือกข้อมูลล่าสุด
+      const latestData = json[0];
+  
+      setData([latestData]);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  
+
+  useEffect(() => {
+    getMovies();
+  }, []);
+mg3x8cdf-3000.asse.devtunnels.ms

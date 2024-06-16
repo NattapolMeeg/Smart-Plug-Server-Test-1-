@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
 
 const ElectricalSchema = new mongoose.Schema({
-    ID: Number,
-    Name: String ,
-    Value: Number,
+    Unit: Number,
+    EEbill: Number ,
     updated_at: { type: Date, default: Date.now } 
 },{
     versionKey: false 
